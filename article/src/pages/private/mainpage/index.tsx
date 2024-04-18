@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Button } from 'antd'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { RouterUrl } from '../../../routes'
 
 export const MainPage = () => {
     const navigate = useNavigate()
@@ -20,6 +22,11 @@ export const MainPage = () => {
   }
   return allItems.length > 0 ? (
     <div>
+        <div className='w-full flex justify-end items-end mt-4 mr-16'>
+            <Button className='border-none shadow-none' onClick={() => navigate(RouterUrl.login)}>
+                Back to log in
+            </Button>
+        </div>
         <h1 className='text-center font-semibold text-[32px] my-12'>All data</h1>
         <div className='w-full flex flex-wrap justify-center items-center gap-4'>
         {allItems?.map((data:any,idx:number) =>(
